@@ -44,7 +44,24 @@ int create_file(char *file_name){
 }
 /* ============== end Creation de fichier ============== */
 
-
+/* ============== Start read de fichier ============== */
+//myopen
+void ouvrir_fichier(char *file_name){
+    int c;
+    FILE *file;
+    file = fopen(file_name, "r");
+    if (file) {
+      printf("=============DEBUT==================\n");
+      while ((c = getc(file)) != EOF)
+        putchar(c);
+      fclose(file);
+      printf("\n=================FIN======================\n");
+    }else{
+      printf("FILE NOT FOUND\n");
+      exit(-1);
+    }
+}
+/* ============== end Read de fichier ============== */
 
 //TO TEST
 // ce main sert juste pour tester les fonctions, test unitaire
